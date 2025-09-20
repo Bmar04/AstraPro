@@ -1,0 +1,22 @@
+# Tracking Analysis Report
+Session: tracking_session_20250919_225447
+
+## Summary Statistics
+- total_tracks: 1.000
+- total_records: 127.000
+- session_duration: 25.580
+- track_lifetimes: track_id
+1    25.580488
+Name: timestamp, dtype: float64
+- avg_track_lifetime: 25.580
+- max_track_lifetime: 25.580
+- avg_confidence: 0.152
+- confirmed_tracks: 1.000
+- avg_speed: 0.362
+- max_speed: 0.448
+
+## Track Details
+             timestamp                     confidence hits
+                   min           max count       mean  max
+track_id                                                  
+1         1.758344e+09  1.758344e+09   127      0.152   74

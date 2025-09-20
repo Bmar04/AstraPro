@@ -1,0 +1,17 @@
+# Tracking Performance Scorecard
+
+precision: 0.0787
+recall: 0.9370
+f1_score: 0.1452
+track_consistency: 1.0000
+total_matches: 580
+false_positives: 6792
+false_negatives: 39
+expected_tracks: 1
+actual_confirmed_tracks: 20
+track_count_accuracy: 1.0000
+mean_position_error: 0.3928
+std_position_error: 0.0992
+mean_velocity_error: 0.4000
+std_velocity_error: 0.0000
+total_timestamps_analyzed: 619
