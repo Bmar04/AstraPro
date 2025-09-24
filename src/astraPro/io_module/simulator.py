@@ -343,16 +343,26 @@ class RealisticMovementSimulator:
         if current_time - self.last_measurement_time < self.sonar_update_time:
             return None
         
-        # Add realistic noise
+        # Calculate servo angle relative to home direction (what real hardware would send)
+        servo_angle = sensor.current_angle - sensor.home_direction
+        
+        # Normalize servo angle to [-90, 90] range
+        while servo_angle > 90:
+            servo_angle -= 180
+        while servo_angle < -90:
+            servo_angle += 180
+        
+        # Add realistic noise to servo angle and distance
         noisy_distance = distance + random.gauss(0, self.distance_noise)
-        noisy_obj_angle = obj_angle + random.gauss(0, self.angle_noise)
+        noisy_servo_angle = servo_angle + random.gauss(0, self.angle_noise)
         
         # Ensure realistic bounds
         noisy_distance = max(sensor.min_range, min(sensor.max_range, noisy_distance))
+        noisy_servo_angle = max(-90, min(90, noisy_servo_angle))  # Clamp to servo range
         
         return Measurement(
             sensor_id=sensor.id,
-            angle=noisy_obj_angle,  # Angle from sensor to object, not servo angle
+            angle=noisy_servo_angle,  # Now sending servo angle relative to home direction
             distance=noisy_distance,
             local_position=[0, 0],  # Not used
             timestamp=current_time

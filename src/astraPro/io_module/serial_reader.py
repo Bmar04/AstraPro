@@ -22,7 +22,7 @@ class SensorReader:
                 
                 return Measurement(
                     sensor_id=data['sensor_id'],
-                    angle=data['angle'], 
+                    angle=data['angle'],  # Now servo angle relative to home direction (-90 to +90)
                     distance=data['distance'],
                     local_position=data['local_position'],
                     timestamp=data['timestamp']
@@ -38,4 +38,4 @@ if __name__ == "__main__":
     while True:
         measurement = reader.get_measurement()
         if measurement:
-            print(f"Sensor {measurement.sensor_id}: {measurement.distance}m at {measurement.angle}°")
+            print(f"Sensor {measurement.sensor_id}: {measurement.distance}m at servo angle {measurement.angle}°")

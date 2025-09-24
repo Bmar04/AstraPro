@@ -51,10 +51,15 @@ def preprocess_measurements(raw_queue: queue.Queue, processed_queue: queue.Queue
             if not sensor_config:
                 continue
             
-            # Transform to world coordinates
+            # Convert servo angle to world angle
+            from .transforms import get_sensor_home_direction
+            home_direction = get_sensor_home_direction(sensor_config, field_config)
+            world_angle = home_direction + measurement.angle  # measurement.angle is now servo angle
+            
+            # Transform to world coordinates using the corrected world angle
             x_world, y_world = measurement_to_world(
                 measurement.distance,
-                measurement.angle,
+                world_angle,
                 sensor_config,
                 field_config
             )

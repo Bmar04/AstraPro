@@ -1,0 +1,36 @@
+# Tracking Analysis Report
+Session: tracking_session_20250923_195701
+
+## Summary Statistics
+- total_tracks: 8.000
+- total_records: 3250.000
+- session_duration: 100.776
+- track_lifetimes: track_id
+1    100.775660
+2     84.625385
+3     83.241944
+4     82.388557
+5     80.062101
+6     78.718340
+7     75.043064
+8     72.753712
+Name: timestamp, dtype: float64
+- avg_track_lifetime: 82.201
+- max_track_lifetime: 100.776
+- avg_confidence: 0.050
+- confirmed_tracks: 7.000
+- avg_speed: 0.280
+- max_speed: 0.515
+
+## Track Details
+             timestamp                     confidence hits
+                   min           max count       mean  max
+track_id                                                  
+1         1.758679e+09  1.758679e+09   537      0.016   41
+2         1.758679e+09  1.758679e+09   437      0.006    1
+3         1.758679e+09  1.758679e+09   429      0.008    2
+4         1.758679e+09  1.758679e+09   417      0.004    6
+5         1.758679e+09  1.758679e+09   389      0.003    2
+6         1.758679e+09  1.758679e+09   375      0.010    8
+7         1.758679e+09  1.758679e+09   346      0.005    6
+8         1.758679e+09  1.758679e+09   320      0.433  187
